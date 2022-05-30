@@ -13,6 +13,8 @@ CREATE TABLE tbl_user (
 
 SELECT * FROM tbl_user;
 
+ALTER TABLE tbl_student  MODIFY st_tel VARCHAR2(15);
+
 UPDATE tbl_student 
 SET st_tel = '010-111-1111'
 WHERE st_num = '20220001';

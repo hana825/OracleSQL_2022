@@ -26,6 +26,22 @@ IDENTIFIED BY '!Korea8080';
 MySQL은 사용자를 등록하면 그 사용자는 DBA 권한을 기본적으로 갖는다.
 MySQL은 실무에서 가장 많이 사용하는 버전이 5.7.x이다.
 5.7버전은 사용자 등록과 동시에 DB 관련된 명령을 대부분 사용할 수 있다.
-8.x버전은 사용자권한이 좀더 엄격해졌다.
+8.x버전은 사용자권한이 좀더 엄격해졌다. 
+
+새로 등록한 사용자에게 DB에 접근할 수 있는 권한부여하기
+hana@localhost 사용자에게 mydb Schema에 접근하여 모든 DML 명령을 수행할 수 있는 권한을 부여한다.
 */
+
+GRANT ALL PRIVILEGES ON mydb.* TO 'hana'@'localhost';
+
+CREATE USER 'user1'@'127.0.0.1' IDENTIFIED BY '!Korea8080';
+
+-- user1은 모든 DB Schema에 접근권한 부여
+GRANT ALL PRIVILEGES ON *.* TO 'user1'@'127.0.0.1';
+
+-- 어디에서나 접속할 수 있도록 범위를 지정하지 않는 사용자 등록
+CREATE USER 'user2'@'*' IDENTIFIED BY '!Korea8080';
+
+
+
 
